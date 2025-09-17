@@ -7,7 +7,8 @@ LABEL com.github.containers.toolbox="true" \
       version="$VERSION" \
       usage="This image is meant to be used with the toolbox(1) command" \
       summary="Image for creating Fedora Toolbx containers"
-
+      
+      
 RUN dnf --assumeyes upgrade
 
 COPY extra-packages /
@@ -17,8 +18,13 @@ RUN rm /extra-packages
 RUN wget https://update.code.visualstudio.com/latest/linux-rpm-x64/stable -O /code-latest-x64.rpm
 RUN dnf --assumeyes install /code-latest-x64.rpm
 RUN rm /code-latest-x64.rpm
+
 RUN mkdir /usr/share/code/data
 RUN chmod 777 /usr/share/code/data
+
+ENV PLATFORMIO_CORE_DIR="/usr/share/platformio"
+RUN mkdir /usr/share/platformio
+RUN chmod 777 /usr/share/platformio
 
 RUN dnf clean all
 
@@ -33,5 +39,9 @@ RUN mkdir /install
 COPY ./code-templates.tgz /install/
 COPY ./setup_extensions.sh /usr/local/bin/
 
+#COPY ./itemisCREATE.tar.gz /install/
+#RUN tar -C /opt -zxvf /install/itemisCREATE.tar.gz
+#RUN ln -s /opt/itemis_CREATE/itemisCREATE /usr/local/bin/itemisCREATE
+#RUN rm /install/itemisCREATE.tar.gz
+
 COPY ./rootfs_update.sh /usr/local/bin/
-#RUN chmod a+x /usr/local/bin/rootfs_update.sh
