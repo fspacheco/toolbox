@@ -39,9 +39,9 @@ RUN mkdir /install
 COPY ./code-templates.tgz /install/
 COPY ./setup_extensions.sh /usr/local/bin/
 
-#COPY ./itemisCREATE.tar.gz /install/
-#RUN tar -C /opt -zxvf /install/itemisCREATE.tar.gz
-#RUN ln -s /opt/itemis_CREATE/itemisCREATE /usr/local/bin/itemisCREATE
-#RUN rm /install/itemisCREATE.tar.gz
+RUN curl https://discovirtual.ifsc.edu.br/index.php/s/z8EgoqK9VSQ1PIF/download --output /create_install.tgz
+RUN tar -C /opt -zxvf /create_install.tgz
+RUN ln -s /opt/itemis_CREATE/itemisCREATE /usr/local/bin/itemisCREATE
+RUN rm /create_install.tgz
 
 COPY ./rootfs_update.sh /usr/local/bin/
