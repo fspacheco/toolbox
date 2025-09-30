@@ -8,7 +8,7 @@ code --install-extension fleexo.cpp-class-creator
 code --install-extension platformio.platformio-ide
 code --install-extension dnut.rewrap-revived
 code --install-extension mhutchie.git-graph
-code --install-extension theumletteam.umlet
+code --install-extension jebbs.plantuml
 code --install-extension wavetrace.wavetrace
 
 tar -C /usr/share/code/data/user-data/User/ -zxvf /install/code-templates.tgz
