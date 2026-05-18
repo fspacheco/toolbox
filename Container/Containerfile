@@ -45,3 +45,4 @@ RUN ln -s /opt/itemis_CREATE/itemisCREATE /usr/local/bin/itemisCREATE
 RUN rm /create_install.tgz
 
 COPY ./rootfs_update.sh /usr/local/bin/
+COPY ./repo_view.sh /usr/local/bin/
