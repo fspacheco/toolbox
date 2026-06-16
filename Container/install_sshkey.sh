@@ -43,12 +43,15 @@ if [ \$? -eq 1 ]; then
 fi
 
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
+gsettings set org.gnome.desktop.interface accent-color 'green'
+gsettings set org.gnome.desktop.background picture-uri "file:///usr/share/backgrounds/gnome/adwaita-l.jxl"
+dconf write /org/gnome/Ptyxis/bold-is-bright true
 EOF
 
 sudo cp $KEYDIR/aluno.sh /etc/profile.d/
 
 echo ""
-echo "Please, install the aboce public key on your GitHUB account"
+echo "Please, install the above public key on your GitHUB account"
 echo ""
 
 cat $KEYDIR/id_ed25519.pub
