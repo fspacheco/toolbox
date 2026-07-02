@@ -46,6 +46,9 @@ gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,m
 gsettings set org.gnome.desktop.interface accent-color 'green'
 gsettings set org.gnome.desktop.background picture-uri "file:///usr/share/backgrounds/gnome/adwaita-l.jxl"
 dconf write /org/gnome/Ptyxis/bold-is-bright true
+dconf write /org/gnome/Ptyxis/interface-style "'light'"
+dconf write /org/gnome/Ptyxis/use-system-font false
+dconf write /org/gnome/Ptyxis/font-name "'Monospace 18'"
 EOF
 
 sudo cp $KEYDIR/aluno.sh /etc/profile.d/
