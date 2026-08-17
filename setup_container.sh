@@ -64,5 +64,5 @@ toolbox create -i $NAME-toolbox:latest $NAME
 if [ -x $CONTAINERFILE/postbuild.sh ]; then
 	podman cp $CONTAINERFILE/postbuild.sh $NAME:/
 	toolbox run --container=$NAME /postbuild.sh
-	toolbox run --container=$NAME rm /postbuild.sh
+	toolbox run --container=$NAME sudo rm /postbuild.sh
 fi
