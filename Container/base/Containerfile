@@ -1,7 +1,7 @@
-FROM registry.fedoraproject.org/fedora-toolbox:41
+FROM registry.fedoraproject.org/fedora-toolbox:44
 
 ARG NAME=base-toolbox
-ARG VERSION=41
+ARG VERSION=44
 LABEL com.github.containers.toolbox="true" \
       name="$NAME" \
       version="$VERSION" \
@@ -10,11 +10,9 @@ LABEL com.github.containers.toolbox="true" \
       
       
 #RUN dnf --assumeyes upgrade
-
 #COPY extra-packages /
 #RUN dnf --assumeyes install $(<extra-packages)
 #RUN rm /extra-packages
-
 #RUN dnf clean all
 
 RUN sed -i -e 's/ ALL$/ NOPASSWD:ALL/' /etc/sudoers

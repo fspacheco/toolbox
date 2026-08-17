@@ -1,7 +1,7 @@
-FROM registry.fedoraproject.org/fedora-toolbox:41
+FROM registry.fedoraproject.org/fedora-toolbox:44
 
 ARG NAME=dev-toolbox
-ARG VERSION=41
+ARG VERSION=44
 LABEL com.github.containers.toolbox="true" \
       name="$NAME" \
       version="$VERSION" \
