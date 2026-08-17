@@ -16,3 +16,5 @@ qt-creator-doc
 pdfpc
 jre
 graphviz
+valgrind
+strace
