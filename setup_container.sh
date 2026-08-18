@@ -8,6 +8,16 @@ else
    echo "Default name of toolbox is $NAME"
 fi
 
+CONTAINERFILE=Container/$NAME
+if [ ! -d $CONTAINERFILE ]; then
+   printf "Invalid toolbox name, directory $CONTAINERFILE does not exits!\n\n"
+   printf "   Valid names are:\n"
+   for dir in $(find ./Container/ -maxdepth 1 -mindepth 1 -type d -printf '%P '); do
+      printf "    $dir\n"
+   done
+   exit 1
+fi
+
 # Check if container and image exists
 podman container list -a | grep $NAME > /dev/null
 if [ $? -eq 0 ]; then
@@ -49,6 +59,10 @@ done
 
 echo "Starting ..."
 
-podman build --squash --tag $NAME-toolbox:latest Container/
+podman build --squash --tag $NAME-toolbox:latest $CONTAINERFILE
 toolbox create -i $NAME-toolbox:latest $NAME
-toolbox run --container=$NAME setup_extensions.sh
+if [ -x $CONTAINERFILE/postbuild.sh ]; then
+	podman cp $CONTAINERFILE/postbuild.sh $NAME:/
+	toolbox run --container=$NAME /postbuild.sh
+	toolbox run --container=$NAME sudo rm /postbuild.sh
+fi

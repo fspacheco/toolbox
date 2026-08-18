@@ -1,7 +1,7 @@
-FROM registry.fedoraproject.org/fedora-toolbox:41
+FROM registry.fedoraproject.org/fedora-toolbox:44
 
 ARG NAME=dev-toolbox
-ARG VERSION=41
+ARG VERSION=44
 LABEL com.github.containers.toolbox="true" \
       name="$NAME" \
       version="$VERSION" \
@@ -37,7 +37,6 @@ RUN ln -s /run/host/var/data/aluno/prg203405 /prg203405
 
 RUN mkdir /install
 COPY ./code-templates.tgz /install/
-COPY ./setup_extensions.sh /usr/local/bin/
 
 RUN curl https://discovirtual.ifsc.edu.br/index.php/s/z8EgoqK9VSQ1PIF/download --output /create_install.tgz
 RUN tar -C /opt -zxvf /create_install.tgz
