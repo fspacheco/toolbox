@@ -19,7 +19,7 @@ if [ ! -d $CONTAINERFILE ]; then
 fi
 
 # Check if container and image exists
-podman container list -a | grep $NAME > /dev/null
+podman container exists $NAME
 if [ $? -eq 0 ]; then
    echo "Container named $NAME already exists!"
    while true; do
@@ -34,7 +34,7 @@ if [ $? -eq 0 ]; then
    podman rm $NAME
 fi
 
-podman images | grep $NAME > /dev/null
+podman image exists $NAME-toolbox
 if [ $? -eq 0 ]; then
    echo "Image localhost/$NAME-toolbox:latest already exists!"
    while true; do
