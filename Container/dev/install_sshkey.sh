@@ -54,7 +54,7 @@ EOF
 sudo cp $KEYDIR/aluno.sh /etc/profile.d/
 
 echo ""
-echo "Please, install the above public key on your GitHUB account"
+echo "Please, install the public key on your GitHUB account"
 echo ""
 
 cat $KEYDIR/id_ed25519.pub
