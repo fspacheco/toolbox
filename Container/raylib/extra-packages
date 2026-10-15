@@ -1,0 +1,7 @@
+gcc
+gcc-c++
+gdb
+make
+cmake
+raylib
+raylib-devel
