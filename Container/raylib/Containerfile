@@ -29,4 +29,3 @@ RUN ln -s /run/host/var/data/aluno /data
 RUN mkdir -p /run/host/var/data/aluno/plc60407
 RUN ln -s /run/host/var/data/aluno/plc60407 /plc60407
 
-RUN code --install-extension ms-vscode.cpptools-extension-pack
