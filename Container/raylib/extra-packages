@@ -1,6 +1,8 @@
 gcc
 gcc-c++
 gdb
+clang
+file
 make
 cmake
 raylib
