@@ -29,3 +29,5 @@ RUN ln -s /run/host/var/data/aluno /data
 RUN mkdir -p /run/host/var/data/aluno/plc60407
 RUN ln -s /run/host/var/data/aluno/plc60407 /plc60407
 
+COPY ./install_sshkey.sh /usr/local/bin/
+
